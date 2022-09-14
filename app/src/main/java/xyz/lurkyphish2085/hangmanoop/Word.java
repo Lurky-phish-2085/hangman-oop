@@ -5,11 +5,19 @@ public class Word {
 	private final String word;
 	private StringBuilder maskedWord;
 
+	private char mask = '_';
+
 	public Word(String word) {
 		this.word = word;
 		maskedWord = maskWord(word);
 	}
 
+	public Word(String word, char mask) {
+		this.word = word;
+		this.mask = mask;
+		maskedWord = maskWord(word);
+	}
+	
 	public String getWord() {
 		return word;
 	}
@@ -18,10 +26,14 @@ public class Word {
 		return maskedWord.toString();
 	}
 
+	public char getMask() {
+			return mask;
+	}
+
 	private StringBuilder maskWord(String word) {
 		StringBuilder maskedWord = new StringBuilder(word);
 		for (int i = 0; i < word.length(); i++) {
-				maskedWord.setCharAt(i, '_');
+				maskedWord.setCharAt(i, mask);
 		}
 
 		return maskedWord;

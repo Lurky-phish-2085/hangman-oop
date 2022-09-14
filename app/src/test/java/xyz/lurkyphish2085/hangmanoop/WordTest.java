@@ -8,8 +8,10 @@ class WordTest {
 	@Test
 	void wordIsMaksed() {
 		var word = new Word("Hello");
+
 		assertNotEquals(word.getMaskedWord(), word.getWord());
 		assertEquals(word.getMaskedWord().length(), word.getWord().length());
+		assertTrue(word.getMaskedWord().contains(String.valueOf(word.getMask())));
 	}
 
 	@Test
