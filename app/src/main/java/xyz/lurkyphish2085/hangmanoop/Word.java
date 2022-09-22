@@ -57,4 +57,3 @@ public class Word {
 		return word.equals(maskedWord.toString());
 	}
 }
-

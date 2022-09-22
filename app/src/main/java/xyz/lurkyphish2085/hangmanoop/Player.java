@@ -2,8 +2,8 @@ package xyz.lurkyphish2085.hangmanoop;
 
 public class Player {
 	
-	private int attempts; 
-	private int score; 
+	private int attempts;
+	private int score;
 
 	public int getAttempts() {
 		return attempts;
@@ -14,8 +14,8 @@ public class Player {
 	}
 
 	public char guess() {
-		return GameHelper.getUserInput().charAt(0);
 		attempts++;
+		return GameHelper.getUserInput().charAt(0);
 	}
 
 	public void incrementScore() {
