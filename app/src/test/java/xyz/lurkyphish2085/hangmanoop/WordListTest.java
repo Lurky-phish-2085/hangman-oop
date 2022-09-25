@@ -1,21 +1,46 @@
 package xyz.lurkyphish2085.hangmanoop;
 
+import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class WordListTest {
 
-	/* TODO
 	@Test
 	void validatesFile() {
-		InputStream input = getClass().getClassLoader().getResourceAsStream("non-text.mid");
+		URI source = null;
+		try {
+			source = getClass().getClassLoader().getResource("non-text.mid").toURI();
+		} catch (URISyntaxException use) {
+			use.printStackTrace();
+		}
+
+		File file = new File(source);
 		assertThrows(IllegalArgumentException.class,
 				() -> {
-					var words = new WordList(input);
+					new WordList(file);
 				});
 	}
-	*/
+
+	@Test
+	void validatesFileContent() {
+		URI source = null;
+		try {
+			source = getClass().getClassLoader().getResource("words_test_illegal.txt").toURI();
+		} catch (URISyntaxException use) {
+			use.printStackTrace();
+		}
+
+		File file = new File(source);
+		assertThrows(IllegalArgumentException.class,
+				() -> {
+					new WordList(file);
+				});
+	}
 
 	@Test
 	void parsesAFile() {
