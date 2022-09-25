@@ -53,4 +53,15 @@ public class WordListTest {
 		assertTrue(words.getList().size() == items.length);
 		assertTrue(words.getWord(0).equals(items[0]));
 	}
+
+	@Test
+	void immutable() {
+		InputStream input = getClass().getClassLoader().getResourceAsStream("words_test.txt");
+		var words = new WordList(input);
+
+		var list = words.getList();
+		list.clear();
+
+		assertTrue(list.size() != words.getList().size());
+	}
 }
