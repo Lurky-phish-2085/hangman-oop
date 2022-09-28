@@ -2,24 +2,24 @@ package xyz.lurkyphish2085.hangmanoop;
 
 public class Word {
 
-	private final String word;
-	private StringBuilder maskedWord;
+	private final String WORD;
 
+	private StringBuilder maskedWord;
 	private char mask = '_';
 
 	public Word(String word) {
-		this.word = word;
+		this.WORD = word;
 		maskedWord = maskWord(word);
 	}
 
 	public Word(String word, char mask) {
-		this.word = word;
+		this.WORD = word;
 		this.mask = mask;
 		maskedWord = maskWord(word);
 	}
 	
 	public String getWord() {
-		return word;
+		return WORD;
 	}
 
 	public String getMaskedWord() {
@@ -40,12 +40,12 @@ public class Word {
 	}
 
 	public boolean revealLetter(char letter) {
-		if (!word.contains(String.valueOf(letter))) {
+		if (!WORD.contains(String.valueOf(letter))) {
 				return false;
 		}
 
-		for (int i = 0; i < word.length(); i++) {
-				if (word.charAt(i) == letter) {
+		for (int i = 0; i < WORD.length(); i++) {
+				if (WORD.charAt(i) == letter) {
 						maskedWord.setCharAt(i, letter);
 				}
 		}
@@ -54,6 +54,6 @@ public class Word {
 	}
 
 	public boolean isComplete() {
-		return word.equals(maskedWord.toString());
+		return WORD.equals(maskedWord.toString());
 	}
 }

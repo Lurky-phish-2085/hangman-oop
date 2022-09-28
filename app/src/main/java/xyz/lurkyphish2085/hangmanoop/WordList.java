@@ -63,6 +63,8 @@ public class WordList {
 			}
 		}
 
+		file.close();
+
 		return true;
 	}
 
