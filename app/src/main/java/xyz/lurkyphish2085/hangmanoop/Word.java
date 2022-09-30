@@ -5,7 +5,7 @@ public class Word {
 	private final String WORD;
 
 	private StringBuilder maskedWord;
-	private char mask = '_';
+	private char mask = '-';
 
 	public Word(String word) {
 		this.WORD = word;
@@ -23,7 +23,7 @@ public class Word {
 	}
 
 	public String getMaskedWord() {
-		return maskedWord.toString();
+		return maskedWord.toString().replace("", " ");
 	}
 
 	public char getMask() {
