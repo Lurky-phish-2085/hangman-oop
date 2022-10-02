@@ -39,7 +39,7 @@ jar {
         attributes 'Main-Class': 'xyz.lurkyphish2085.hangmanoop.Main'
     }
 
-    baseName 'hangmanoop'
+    archiveBaseName = 'hangmanoop'
 }
 
 run {
