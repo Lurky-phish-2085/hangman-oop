@@ -15,14 +15,11 @@ public class GameHelper {
 	}
 
 	public static void clearScreen() {
-		try {
-			if (OS.equals("Windows")) {
-				PROCESS.command("cmd", "/c", "cls");
-				PROCESS.inheritIO().start().waitFor();
-				return;
-			}
+		boolean isWindows = OS.equals("Windows");
+		String clearCMD = isWindows ? "cmd /c cls" : "clear";
 
-			PROCESS.command("clear");
+		PROCESS.command(clearCMD);
+		try {
 			PROCESS.inheritIO().start().waitFor();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
