@@ -16,9 +16,9 @@ public class GameHelper {
 
 	public static void clearScreen() {
 		boolean isWindows = OS.equals("Windows");
-		String clearCMD = isWindows ? "cmd /c cls" : "clear";
+		String clear = isWindows ? "cmd /c cls" : "clear";
 
-		PROCESS.command(clearCMD);
+		PROCESS.command(clear);
 		try {
 			PROCESS.inheritIO().start().waitFor();
 		} catch (IOException ioe) {
