@@ -17,7 +17,7 @@ public class Word {
 		this.mask = mask;
 		maskedWord = maskWord(word);
 	}
-	
+
 	public String getWord() {
 		return WORD;
 	}

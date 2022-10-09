@@ -76,5 +76,5 @@ public class WordList {
 		}
 
 		return words;
-	} 
+	}
 }

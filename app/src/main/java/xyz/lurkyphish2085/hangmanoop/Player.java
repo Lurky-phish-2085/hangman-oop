@@ -1,7 +1,7 @@
 package xyz.lurkyphish2085.hangmanoop;
 
 public class Player {
-	
+
 	private int attempts;
 	private int score;
 
