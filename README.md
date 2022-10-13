@@ -5,7 +5,7 @@ the basic concepts of OOP I've learned recently.
 
 # System Requirements
 
-Any devices that can access a terminal and has the Java 18+ JRE installed on
+Any devices that can access the terminal and has Java 18+ JRE installed on
 the system.
 
 # Installation and Running
