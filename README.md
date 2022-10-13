@@ -10,8 +10,8 @@ the system.
 
 # Installation and Running
 
-It's not yet done yet, but a pre-release binary which represents the minimum
-viable product is already available.
+Game is not yet complete, but a pre-release binary which represents the minimum
+viable product is already available for you try it out.
 
 Download it from the releases page and put the `jar` file on any directory you
 want.
@@ -25,5 +25,3 @@ Type and press enter:
 ```
 java -jar <path-to-jar-file>
 ```
-
-Enjoy!
