@@ -11,7 +11,7 @@ the system.
 # Installation and Running
 
 Game is not yet complete, but a pre-release binary which represents the minimum
-viable product is already available for you try it out.
+viable product is already available for you to try it out.
 
 Download it from the releases page and put the `jar` file on any directory you
 want.
