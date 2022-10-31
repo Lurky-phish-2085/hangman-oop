@@ -64,4 +64,9 @@ public class Word {
 	public boolean isComplete() {
 		return WORD.equals(maskedWord.toString());
 	}
+
+	@Override
+	public String toString() {
+		return WORD;
+	}
 }

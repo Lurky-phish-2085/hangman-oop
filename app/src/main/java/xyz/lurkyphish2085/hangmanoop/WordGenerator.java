@@ -14,7 +14,7 @@ public class WordGenerator {
 		LIST_SIZE = list.getList().size();
 	}
 
-	public String generate() {
-		return list.getWord(random.nextInt(LIST_SIZE));
+	public Word generate() {
+		return list.popWordAt(random.nextInt(LIST_SIZE));
 	}
 }

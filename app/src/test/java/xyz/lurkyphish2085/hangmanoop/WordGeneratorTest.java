@@ -13,7 +13,7 @@ public class WordGeneratorTest {
 		var wordgen = new WordGenerator(words);
 
 		List<String> wordsList = words.getList();
-		String word = wordgen.generate();
+		String word = wordgen.generate().toString();
 
 		assertNotNull(word);
 		assertTrue(wordsList.contains(word));

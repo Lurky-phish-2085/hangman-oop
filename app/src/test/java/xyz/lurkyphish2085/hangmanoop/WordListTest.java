@@ -51,7 +51,7 @@ public class WordListTest {
 
 		assertNotNull(words.getList());
 		assertTrue(words.getList().size() == items.length);
-		assertTrue(words.getWord(0).equals(items[0]));
+		assertTrue(words.getWord(0).toString().equals(items[0]));
 	}
 
 	@Test

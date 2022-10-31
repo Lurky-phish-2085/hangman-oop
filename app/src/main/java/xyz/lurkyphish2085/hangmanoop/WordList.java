@@ -40,8 +40,15 @@ public class WordList {
 		return new ArrayList<>(LIST);
 	}
 
-	public String getWord(int index) {
-		return LIST.get(index);
+	public Word getWord(int index) {
+		return new Word(LIST.get(index));
+	}
+
+	public Word popWordAt(int index) {
+		Word word = new Word(LIST.get(index));
+		LIST.remove(index);
+
+		return word;
 	}
 
 	private final boolean isFileValid(File file) throws IOException {
