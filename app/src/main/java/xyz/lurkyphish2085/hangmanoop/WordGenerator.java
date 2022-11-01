@@ -7,18 +7,14 @@ import java.util.Random;
 public class WordGenerator {
 
 	private WordList list;
-	private int listSize;
 	private Random random = new Random();
 
 	public WordGenerator(WordList list) {
 		this.list = list;
-		listSize = list.size();
 	}
 
 	public Word generate() {
-		Word word = list.popWordAt(random.nextInt(listSize));
-		listSize = list.size();
-
+		Word word = list.popWordAt(random.nextInt(list.size()));
 		return word;
 	}
 
