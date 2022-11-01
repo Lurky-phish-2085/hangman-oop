@@ -9,20 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class WordList {
 
 	private final Scanner FILE;
 	private final List<String> LIST;
+	private final String legalCharacters = "[a-zA-Z\s\\n\\-']+";
 
-	public WordList(File source) throws IllegalArgumentException, FileNotFoundException {
-		try {
-			if (!isFileValid(source) || !hasLegalCharacters(source)) {
-				throw new IllegalArgumentException("supplied file may not be a text file or contains illegal characters.");
-			}
-		} catch (FileNotFoundException fnfe) {
-			fnfe.printStackTrace();
-		} catch (IOException ie) {
-			ie.printStackTrace();
+	public WordList(File source) throws IOException, FileNotFoundException, IllegalArgumentException {
+		if (!isFileValid(source)) {
+			throw new IllegalArgumentException("Supplied file is not a plain text");
 		}
 
 		FILE = new Scanner(source);
@@ -40,8 +36,16 @@ public class WordList {
 		return new ArrayList<>(LIST);
 	}
 
-	public String getWord(int index) {
-		return LIST.get(index);
+	public Word getWord(int index) {
+		return new Word(LIST.get(index));
+	}
+
+	public int size() {
+		return LIST.size();
+	}
+
+	public Word popWordAt(int index) {
+		return new Word(LIST.remove(index));
 	}
 
 	private final boolean isFileValid(File file) throws IOException {
@@ -50,29 +54,26 @@ public class WordList {
 		return mimetype.equals("text/plain");
 	}
 
-	private final boolean hasLegalCharacters(File textFile) throws FileNotFoundException {
-		Scanner file = new Scanner(textFile);
-		String pattern = "[a-zA-Z\s\\n\\-']+"; // true if string has upper and
-											   // lower alpha, spaces,
-											   // newlines, dashes, and
-											   // apostrophes
-
-		while (file.hasNextLine()) {
-			if (!file.nextLine().matches(pattern)) {
-				return false;
-			}
-		}
-
-		file.close();
-
-		return true;
+	private final boolean hasLegalCharacters(String word) {
+		return word.matches(legalCharacters);
 	}
 
-	private final List<String> parseWords(Scanner file) {
-		ArrayList<String> words = new ArrayList<>();
+	private final List<String> parseWords(Scanner file) throws IllegalArgumentException {
+		List<String> words = new ArrayList<>();
 
+		String word;
 		while (file.hasNext()) {
-			words.add(file.next());
+			word = file.next();
+
+			if (!hasLegalCharacters(word)) {
+				throw new IllegalArgumentException("Text file supplied has invalid characters");
+			}
+
+			words.add(word);
+		}
+
+		if (words.size() == 0) {
+			throw new IllegalArgumentException("Text file supplied is empty");
 		}
 
 		return words;
