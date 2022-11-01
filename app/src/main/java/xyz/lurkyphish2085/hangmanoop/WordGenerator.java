@@ -1,20 +1,34 @@
 package xyz.lurkyphish2085.hangmanoop;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class WordGenerator {
 
-	private final int LIST_SIZE;
-
 	private WordList list;
+	private int listSize;
 	private Random random = new Random();
 
 	public WordGenerator(WordList list) {
 		this.list = list;
-		LIST_SIZE = list.getList().size();
+		listSize = list.size();
 	}
 
 	public Word generate() {
-		return list.popWordAt(random.nextInt(LIST_SIZE));
+		Word word = list.popWordAt(random.nextInt(listSize));
+		listSize = list.size();
+
+		return word;
+	}
+
+	public List<Word> generate(int count) {
+		List<Word> words = new ArrayList<>();
+
+		for (int i = 0; i < count; i++) {
+			words.add(generate());
+		}
+
+		return words;
 	}
 }
