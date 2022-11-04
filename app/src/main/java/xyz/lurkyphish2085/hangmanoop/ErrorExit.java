@@ -1,4 +1,5 @@
 package xyz.lurkyphish2085.hangmanoop;
+
 public class ErrorExit {
 
 	public ErrorExit(Exception ex) {
