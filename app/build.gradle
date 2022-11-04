@@ -23,8 +23,6 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.0.1-jre'
 
-    // for reading manifest file
-    implementation 'com.jcabi:jcabi-manifests:1.2.1'
 }
 
 application {
@@ -43,7 +41,9 @@ jar {
     manifest {
 	attributes(
 	'Built-By': 'lurkyphish2085',
-	'Build-Version': "${buildVersion}",
+	'Implementation-Version': "${buildVersion}",
+	// Use this soon, if there are other libraries
+	//'Class-Path': configurations.runtimeClasspath.files.collect { it.absolutePath }.join(' '),
 	'Created-By': "Gradle ${gradle.gradleVersion}",
 	'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
         'Main-Class': 'xyz.lurkyphish2085.hangmanoop.Main'
