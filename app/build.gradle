@@ -37,10 +37,21 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+def buildVersion = 'v0.1.0-alpha'
+
 jar {
     manifest {
-        attributes 'Main-Class': 'xyz.lurkyphish2085.hangmanoop.Main'
+	attributes(
+	'Built-By': 'lurkyphish2085',
+	'Build-Version': "${buildVersion}",
+	'Created-By': "Gradle ${gradle.gradleVersion}",
+	'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+        'Main-Class': 'xyz.lurkyphish2085.hangmanoop.Main'
+	)
     }
+
+    archiveBaseName = 'hangmanoop'
+    archiveVersion = "${buildVersion}"
 }
 
 run {
